@@ -6,7 +6,7 @@
 /*   By: mchibane <mchibane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 13:23:18 by mchibane          #+#    #+#             */
-/*   Updated: 2021/12/22 13:15:05 by mchibane         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:30:31 by mchibane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ static int	update_node(char *arg, t_envll *envll)
 	while (check_str(cmp[0], tmp->key) == 0)
 		tmp = tmp->next;
 	swap = tmp->value;
+	if (tmp->line)
+		free(tmp->line);
+	tmp->line = ft_strdup(arg);
 	if (equal_in_str(arg))
 	{
 		tmp->value = ft_strdup(cmp[1]);
 		free(swap);
 	}
 	free_tab(cmp);
-	if (!tmp->value)
+	if (!tmp->value || !tmp->line)
 		return (1);
 	tmp->visible = true;
 	return (0);

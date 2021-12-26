@@ -6,7 +6,7 @@
 /*   By: mchibane <mchibane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 16:40:04 by mchibane          #+#    #+#             */
-/*   Updated: 2021/12/22 17:30:39 by mchibane         ###   ########.fr       */
+/*   Updated: 2021/12/26 14:19:09 by mchibane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	msh_exit(t_cmd *cmd)
 		return (2);
 	}
 	if (ac == 1)
-		exit(g_status);
+		return (g_status);
 	else
 		value = ft_atol(cmd->args[1]);
 	return ((unsigned char)value);
